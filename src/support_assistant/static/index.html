@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support & Lead Assistant</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#172033;font:16px Inter,Arial,sans-serif}.shell{max-width:1120px;margin:0 auto;padding:42px 24px}.eyebrow{color:#0f766e;font-weight:800;letter-spacing:.12em;font-size:12px}h1{font-size:42px;line-height:1.08;margin:10px 0}p{color:#607089;line-height:1.65}.layout{display:grid;grid-template-columns:310px 1fr;gap:22px;margin-top:28px}.panel,.chat{background:white;border:1px solid #dfe7ef;border-radius:20px;box-shadow:0 18px 45px #23324d14}.panel{padding:24px}.stat{padding:15px 0;border-bottom:1px solid #edf1f5}.stat strong,.stat span{display:block}.stat strong{font-size:25px}.stat span{color:#718096;font-size:13px}.source{background:#ecfdf5;color:#166534;border-radius:10px;padding:10px;margin-top:10px;font-size:13px}.chat{padding:26px}.message{max-width:82%;padding:15px 17px;border-radius:16px;margin-bottom:14px;line-height:1.55}.assistant{background:#eef2ff}.user{margin-left:auto;background:#0f766e;color:white}.citation{font-size:12px;color:#0f766e;font-weight:700;margin:-6px 0 18px}form{display:grid;grid-template-columns:1fr 190px auto;gap:10px;margin-top:24px}input,button{border-radius:12px;padding:13px;border:1px solid #ced8e3;font:inherit}button{background:#172033;color:white;border-color:#172033;font-weight:700;cursor:pointer}.lead{margin-top:14px;color:#5c6b80;font-size:13px}@media(max-width:800px){.layout{grid-template-columns:1fr}form{grid-template-columns:1fr}h1{font-size:34px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="eyebrow">SOURCE-AWARE SUPPORT WORKFLOW</div>
+    <h1>Answer approved questions.<br>Route qualified enquiries.</h1>
+    <p>This runnable demo uses four fictional knowledge articles and makes zero external API calls.</p>
+    <section class="layout">
+      <aside class="panel">
+        <div class="eyebrow">DEMO STATUS</div>
+        <div class="stat"><strong>4</strong><span>approved knowledge articles</span></div>
+        <div class="stat"><strong>0</strong><span>external API calls</span></div>
+        <div class="stat"><strong>2</strong><span>source citations returned</span></div>
+        <div class="source">Service catalogue</div><div class="source">Pricing policy</div><div class="source">Delivery policy</div><div class="source">Document automation</div>
+      </aside>
+      <section class="chat" aria-live="polite" id="chat">
+        <div class="message assistant">Hello — ask about automation pricing, document workflows, booking, or delivery timelines.</div>
+        <div class="message user">Can you automate PDF document reviews, and how would we start?</div>
+        <div class="message assistant">Document workflows can extract approved fields, summarize files, apply validation rules, and export structured CSV or JSON. A focused engagement starts with sample documents, required fields, and an agreed review process.</div>
+        <div class="citation">Sources: Document automation · Delivery policy</div>
+        <form id="question-form">
+          <input id="question" aria-label="Question" value="What does a focused automation cost?">
+          <input id="email" aria-label="Email" placeholder="Email (optional)">
+          <button>Ask</button>
+        </form>
+        <div class="lead" id="lead">Lead status: not captured · no personal data is stored by this demo.</div>
+      </section>
+    </section>
+  </main>
+  <script>
+    const form=document.querySelector('#question-form');
+    form.addEventListener('submit',async(event)=>{event.preventDefault();const question=document.querySelector('#question').value;const email=document.querySelector('#email').value||null;const response=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({question,email})});const data=await response.json();const chat=document.querySelector('#chat');const formNode=form;const user=document.createElement('div');user.className='message user';user.textContent=question;const assistant=document.createElement('div');assistant.className='message assistant';assistant.textContent=data.answer;chat.insertBefore(user,formNode);chat.insertBefore(assistant,formNode);document.querySelector('#lead').textContent=`Lead status: ${data.lead_status.replaceAll('_',' ')} · Sources: ${data.sources.map(source=>source.title).join(', ')||'none'}`;});
+  </script>
+</body>
+</html>
+

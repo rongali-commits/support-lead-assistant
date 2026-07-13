@@ -1,0 +1,23 @@
+[
+  {
+    "article_id": "services",
+    "title": "Automation service catalogue",
+    "content": "Focused builds can cover Python reporting, spreadsheet cleanup, API integrations, internal dashboards, and source-aware support assistants. Scope is agreed around one clear workflow and handover package."
+  },
+  {
+    "article_id": "pricing",
+    "title": "Pricing and discovery policy",
+    "content": "Pricing depends on the workflow, data sources, integrations, and delivery risk. A fixed quote follows a short discovery step using sample inputs and an agreed definition of done."
+  },
+  {
+    "article_id": "delivery",
+    "title": "Delivery and handover policy",
+    "content": "A focused engagement starts with sample data and acceptance criteria, then moves through a working preview, validation, deployment, and documented handover. Urgent timelines are confirmed only after reviewing the workflow."
+  },
+  {
+    "article_id": "documents",
+    "title": "Document automation capabilities",
+    "content": "Document workflows can extract approved fields, summarize files, apply validation rules, and export structured CSV or JSON. Sensitive files should use client-approved storage, access controls, and retention rules."
+  }
+]
+
