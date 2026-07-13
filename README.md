@@ -1,7 +1,7 @@
 # Support & Lead Assistant
 
 [![CI](https://github.com/rongali-commits/support-lead-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/rongali-commits/support-lead-assistant/actions/workflows/ci.yml)
-[Portfolio](https://www.rongalichaitanya.com) · [Discuss an assistant](mailto:hello@rongalichaitanya.com)
+[Live application](https://rongali-commits.github.io/support-lead-assistant/) · [Portfolio](https://www.rongalichaitanya.com) · [Discuss an assistant](mailto:hello@rongalichaitanya.com)
 
 A source-aware FastAPI assistant that answers from an approved knowledge base, returns citations, classifies customer intent, and marks high-intent enquiries for follow-up.
 
@@ -71,6 +71,7 @@ curl -X POST http://127.0.0.1:8000/api/chat \
 src/support_assistant/app.py       API, intent routing, and lead status
 src/support_assistant/retrieval.py local source retrieval
 src/support_assistant/static/      runnable browser interface
+site/                              independently hosted browser edition
 data/knowledge_base.json           fictional approved content
 tests/                             API and safety-path tests
 docs/                              verified screenshot
