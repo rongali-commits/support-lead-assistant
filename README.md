@@ -1,7 +1,7 @@
 # Support & Lead Assistant
 
 [![CI](https://github.com/rongali-commits/support-lead-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/rongali-commits/support-lead-assistant/actions/workflows/ci.yml)
-[Live application](https://rongali-commits.github.io/support-lead-assistant/) · [Portfolio](https://www.rongalichaitanya.com) · [Discuss an assistant](mailto:hello@rongalichaitanya.com)
+[Live application](https://rongali-commits.github.io/support-lead-assistant/) · [Portfolio](https://noerong.com/projects) · [Discuss an assistant](mailto:hello@noerong.com)
 
 A source-aware FastAPI assistant that answers from an approved knowledge base, returns citations, classifies customer intent, and marks high-intent enquiries for follow-up.
 
