@@ -27,7 +27,7 @@ class KnowledgeBase:
         self.articles = articles
 
     @classmethod
-    def from_json(cls, path: Path) -> "KnowledgeBase":
+    def from_json(cls, path: Path) -> KnowledgeBase:
         payload = json.loads(path.read_text(encoding="utf-8"))
         return cls([Article(**item) for item in payload])
 
